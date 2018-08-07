@@ -27,7 +27,6 @@ def sort_dic(top_cost_drug):
 ## main program
 
 drug_cost = {}
-num_drug = 0
 top_cost_drug = []
 
 try:
@@ -55,14 +54,11 @@ for line in finput:
 	else:
 		record = line.split(',')
 		drug_cost = {'drug_name':record[-2],'drug_cost':float(record[-1])}
-		print(drug_cost)
-		
 		top_cost_drug = search(drug_cost,top_cost_drug)
 
 sorted_top_cost_drug = sort_dic(top_cost_drug)
 
 foutput.write('drug_name,num_prescriber,total_cost\n')
-
 for dic in sorted_top_cost_drug:
 	foutput.write('{},{},{:.2f}\n'.format(dic['drug_name'],dic['num_prescriber'],dic['total_cost']))
 		
